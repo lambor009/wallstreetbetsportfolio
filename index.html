@@ -4,17 +4,98 @@
   <meta charset="utf-8">
   <title>wsb portfolio</title>
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="https://www.chartjs.org/dist/2.9.4/Chart.min.js"></script>
+	<script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+	<style>
+	canvas{
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	</style>
 </head>
   <body>
-
+    <div style="width:75%;">
+        <canvas id="canvas"></canvas>
+    </div>
+    <br>
+    <br>
     <p> hello 5</p>
     <script>
-      var json = JSON.parse($.getJSON({'url': 'jsontest.json', 'async': false}).responseText);
+      var json = JSON.parse($.getJSON({'url': 'wsbtop1_history.json', 'async': false}).responseText);
       console.log(json);
-      console.log(json[0].name);
-      console.log(json[0].age);
-      console.log(json[1].name);
-      console.log(json[1].age);
+      
+      var dates = [];
+      var histvalues = [];
+      var mod_histvalues = [];
+      
+      var i;
+      for (i = 0; i < json.length; i++) {
+        dates.push(json[i].datetime);
+        histvalues.push(json[i].values);
+      }
+      
+      var j;
+      for (j = 0; j < json.length; j++) {
+        mod_histvalues.push(histvalues[j]*1.5);
+      }
+      
+		var config = {
+			type: 'line',
+			data: {
+				labels: dates,
+				datasets: [{
+					label: 'My First dataset',
+					backgroundColor: window.chartColors.red,
+					borderColor: window.chartColors.red,
+					data: histvalues,
+					fill: false,
+				}, {
+					label: 'My Second dataset',
+					fill: false,
+					backgroundColor: window.chartColors.blue,
+					borderColor: window.chartColors.blue,
+					data: mod_histvalues,
+				}]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Chart.js Line Chart'
+				},
+				tooltips: {
+					mode: 'index',
+					intersect: false,
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Month'
+						}
+					}],
+					yAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Value'
+						}
+					}]
+				}
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			window.myLine = new Chart(ctx, config);
+		};
+      
     </script>
   
   </body>
