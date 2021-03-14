@@ -9,7 +9,9 @@
 
 <p> hello </p>
 <script>
+  alert("test");
   $.getJSON("jsontest.json", function(json) {
+    alert("test");
     console.log("got json:" + json[0].name); // this will show the info it in firebug console
 });
 </script>
