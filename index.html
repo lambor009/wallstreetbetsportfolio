@@ -7,11 +7,15 @@
 </head>
   <body>
 
-    <p> hello 3</p>
+    <p> hello 4</p>
     <script>alert("test");</script>
     <script>
       var json = JSON.parse($.getJSON({'url': 'jsontest.json', 'async': false}).responseText);
       console.log(json);
+      console.log(json[0].name);
+      console.log(json[0].age);
+      console.log(json[1].name);
+      console.log(json[1].age);
     </script>
   
   </body>
