@@ -35,8 +35,8 @@
 	var i;
 	for(i = 0; i < json.datetime.length; i++) {
 		console.log("creating dates and hist values array");
-		dates.push(json[i].datetime);
-		histvalues.push(json[i].values);
+		dates.push(json.datetime[i]);
+		histvalues.push(json.values[i]);
 	}
 	var j;
 	for(j = 0; j < 3; j++) {
