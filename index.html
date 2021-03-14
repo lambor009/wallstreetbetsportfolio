@@ -7,14 +7,23 @@
 </head>
   <body>
 
-    <p> hello 2</p>
+    <p> hello 3</p>
     <script>alert("test");</script>
     <script>
-      alert("test 2");
-      $.getJSON("jsontest.json", function(json) {
-        alert("test 3");
-        console.log("got json:" + json[0].name); // this will show the info it in firebug console
-    });
+      var json = function () {
+      var jsonTemp = null;
+      $.ajax({
+        'async': false,
+        'url': "jsontest.json",
+        'success': function (data) {
+            jsonTemp = data;
+              }
+          });
+          return jsonTemp;
+      }(); 
+
+      document.write(json[0].name);
+      console.log(json);
     </script>
   
   </body>
