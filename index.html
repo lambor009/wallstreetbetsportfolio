@@ -17,12 +17,13 @@
 </head>
 
 <body>
-	<div style="width:75%;">
-		<canvas id="canvas"></canvas>
-	</div>
+	<center>
+		<div style="width:75%;">
+			<canvas id="canvas"></canvas>
+		</div>
+	</center>
 	<br>
 	<br>
-	<p> hello 5</p>
 	<script>
 		var basedatetime_json = JSON.parse($.getJSON({
 				'url': 'wsbtop100_history.json',
@@ -32,27 +33,13 @@
 			type: 'line',
 			data: {
 				labels: basedatetime_json.datetime,
-				datasets: [{
-					label: 'My base dataset',
-					fill: false,
-					backgroundColor: window.chartColors.blue,
-					borderColor: window.chartColors.blue,
-					data: [
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor()
-					],
-				}]
+				datasets: []
 			},
 			options: {
 				responsive: true,
 				title: {
 					display: true,
-					text: 'Chart.js Line Chart'
+					text: 'WallStreetBets Portfolio Performance'
 				},
 				tooltips: {
 					mode: 'index',
