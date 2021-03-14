@@ -31,15 +31,17 @@
 
 	      var i;
 	      for (i = 0; i < json.length; i++) {
+		      console.log("creating dates and hist values array");
 		dates.push(json[i].datetime);
 		histvalues.push(json[i].values);
 	      }
 
 	      var j;
-	      for (j = 0; j < json.length; j++) {
-		console.log(dates[j]);
-		      console.log(histvalues[j]);
-		mod_histvalues.push(histvalues[j]*1.5);
+	      for (j = 0; j < 3 j++) {
+		    	
+			console.log(dates[j]);
+		      	console.log(histvalues[j]);
+			mod_histvalues.push(histvalues[j]*1.5);
 	      }
       
 		var config = {
