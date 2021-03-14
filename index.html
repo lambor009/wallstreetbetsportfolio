@@ -22,40 +22,56 @@
     <br>
     <p> hello 5</p>
     <script>
-      var json = JSON.parse($.getJSON({'url': 'wsbtop1_history.json', 'async': false}).responseText);
-      console.log(json);
-      
-      var dates = [];
-      var histvalues = [];
-      var mod_histvalues = [];
-      
-      var i;
-      for (i = 0; i < json.length; i++) {
-        dates.push(json[i].datetime);
-        histvalues.push(json[i].values);
-      }
-      
-      var j;
-      for (j = 0; j < json.length; j++) {
-        mod_histvalues.push(histvalues[j]*1.5);
-      }
+	      var json = JSON.parse($.getJSON({'url': 'wsbtop1_history.json', 'async': false}).responseText);
+	      console.log(json);
+
+	      var dates = [];
+	      var histvalues = [];
+	      var mod_histvalues = [];
+
+	      var i;
+	      for (i = 0; i < json.length; i++) {
+		dates.push(json[i].datetime);
+		histvalues.push(json[i].values);
+	      }
+
+	      var j;
+	      for (j = 0; j < json.length; j++) {
+		console.log(dates[j]);
+		      console.log(histvalues[j]);
+		mod_histvalues.push(histvalues[j]*1.5);
+	      }
       
 		var config = {
 			type: 'line',
 			data: {
-				labels: dates,
+				labels: dates[],
 				datasets: [{
 					label: 'My First dataset',
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
-					data: histvalues,
+					data: histvalues[],
 					fill: false,
 				}, {
 					label: 'My Second dataset',
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
-					data: mod_histvalues,
+					data: mod_histvalues[],
+				}, {
+					label: 'My third dataset',
+					fill: false,
+					backgroundColor: window.chartColors.blue,
+					borderColor: window.chartColors.blue,
+					data: [
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor()
+					],
 				}]
 			},
 			options: {
