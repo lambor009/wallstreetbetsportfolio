@@ -99,7 +99,7 @@
 			var colorName = colorNames[config.data.datasets.length % colorNames.length];
 			var newColor = window.chartColors[colorName];
 			var newDataset = {
-				label: 'Dataset ' + portfolios[iter_port],
+				label: portfolios[iter_port],
 				backgroundColor: newColor,
 				borderColor: newColor,
 				data: json.values,
