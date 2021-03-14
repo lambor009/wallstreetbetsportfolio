@@ -86,7 +86,7 @@
 		};
 		var portfolios = ["wsbtop1", "wsbtop10", "wsbtop50", "wsbtop100", "wsb1000score", "wsb100score"]
 		var iter_port;
-		for (iter_port = 0; portfolios.length; iter_port++) {
+		for (iter_port = 0; iter_port < portfolios.length; iter_port++) {
 			
 			var json = JSON.parse($.getJSON({
 				'url': portfolios[iter_port] + '_history.json',
