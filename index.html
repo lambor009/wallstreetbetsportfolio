@@ -10,7 +10,7 @@
 <p> hello </p>
 <script>
   $.getJSON("jsontest.json", function(json) {
-    console.log(json); // this will show the info it in firebug console
+    console.log("got json:" + json[0].name); // this will show the info it in firebug console
 });
 </script>
 
