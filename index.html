@@ -29,39 +29,33 @@
 		'async': false
 	}).responseText);
 	console.log(json);
-	var dates = [];
-	var histvalues = [];
-	var mod_histvalues = [];
-	var i;
-	for(i = 0; i < json.datetime.length; i++) {
-		console.log("creating dates and hist values array");
-		dates.push(json.datetime[i]);
-		histvalues.push(json.values[i]);
-	}
-	var j;
-	for(j = 0; j < 3; j++) {
-		console.log(dates[j]);
-		console.log(histvalues[j]);
-		mod_histvalues.push(histvalues[j] * 1.5);
-	}
+	#var dates = [];
+	#var histvalues = [];
+	#var mod_histvalues = [];
+	#var i;
+	#for(i = 0; i < json.datetime.length; i++) {
+	#	console.log("creating dates and hist values array");
+	#	dates.push(json.datetime[i]);
+	#	histvalues.push(json.values[i]);
+	#}
+	#var j;
+	#for(j = 0; j < 3; j++) {
+	#	console.log(dates[j]);
+	#	console.log(histvalues[j]);
+	#	mod_histvalues.push(histvalues[j] * 1.5);
+	#}
 	var config = {
 		type: 'line',
 		data: {
-			labels: dates,
+			labels: json.datetime,
 			datasets: [{
 				label: 'My First dataset',
 				backgroundColor: window.chartColors.red,
 				borderColor: window.chartColors.red,
-				data: histvalues,
+				data: json.values,
 				fill: false,
 			}, {
-				label: 'My Second dataset',
-				fill: false,
-				backgroundColor: window.chartColors.blue,
-				borderColor: window.chartColors.blue,
-				data: mod_histvalues,
-			}, {
-				label: 'My third dataset',
+				label: 'My 2nd dataset',
 				fill: false,
 				backgroundColor: window.chartColors.blue,
 				borderColor: window.chartColors.blue,
