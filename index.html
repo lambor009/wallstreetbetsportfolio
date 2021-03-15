@@ -7,6 +7,7 @@
 	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 	<script src="https://www.chartjs.org/dist/2.9.4/Chart.min.js"></script>
 	<script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+	<link rel="shortcut icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/209/rocket_1f680.png"/>
 	<style>
 	canvas {
 		-moz-user-select: none;
@@ -17,16 +18,16 @@
 </head>
 
 <body>
-	<center>
-		<h3>FAQ</h3>
-		<ul>
-			<li>What is this website? >> It displays the value of the "WSB Portfolio" over time</li>
-			<li>What is the "WSB Portfolio? >> It is a portfolio built by taking the scores from <a href="https://dayminer.herokuapp.com/">this website</a> then weighs each stock based on it's score</li>
-			<li>I still don't understand... >> Say there's 10 stocks in the portfolio, the score of all 10 combined is 100. Say GME is one of the 10, and has a individual score of 50, so GME would make up 50% of the portfolio</li>
-			<li>How often does it rebalance? >> Every morning after market open, and right before market close.</li>
-			<li>What are all the different portfolios? >> wsbtopX is the top X number of stocks on the list. wsbXscore is all the stocks with a score >= X</li>
-		</ul>
-	</center>
+	
+	<h3>FAQ</h3>
+	<ul>
+		<li>What is this website? >> It displays the value of the "WSB Portfolio" over time</li>
+		<li>What is the "WSB Portfolio? >> It is a portfolio built by taking the scores from <a href="https://dayminer.herokuapp.com/">this website</a> then weighs each stock based on it's score</li>
+		<li>I still don't understand... >> Say there's 10 stocks in the portfolio, the score of all 10 combined is 100. Say GME is one of the 10, and has a individual score of 50, so GME would make up 50% of the portfolio</li>
+		<li>How often does it rebalance? >> Every morning after market open, and right before market close.</li>
+		<li>What are all the different portfolios? >> wsbtopX is the top X number of stocks on the list. wsbXscore is all the stocks with a score >= X</li>
+	</ul>
+	
 	<center>
 		<div style="width:75%;">
 			<canvas id="canvas"></canvas>
