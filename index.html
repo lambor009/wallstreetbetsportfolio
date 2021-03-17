@@ -374,7 +374,7 @@
 			  var listItemDesc = $('.portfolio-value', listItem);
 			  listItemDesc.html('Value: $' + item.values[item.values.length-1]);
 			  var listItemAmount = $('.percent-gain', listItem);
-			  listItemAmount.html('% Chg: ' + (Math.round(item.values[item.values.length-1]*100/1000)) + '%');
+			  listItemAmount.html('% Chg: ' + (item.values[item.values.length-1]*100/1000)-11 + '%');
 			  var listItemDatetime = $('.last-update', listItem);
 			  listItemDatetime.html('Updated: ' + item.datetime[item.values.length-1]);
 			  $('#' + portfolios[iter_port] + 'portfolioInfo').append(listItem);
