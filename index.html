@@ -22,11 +22,10 @@
 	
 	#portfolio-container > div {
 		background-color: #f1f1f1;
-		width: 100px;
 		margin: 10px;
 		text-align: center;
 		line-height: 75px;
-		font-size: 30px;
+		font-size: 12px;
 	}
 	
 	ul {
@@ -65,11 +64,17 @@
 	  line-height: normal;
 	}
 
-	.row1,
-	.row2 {
+	.row1 {
 	  clear: both;
+		display: flex;
 	}
-	li {
+	.row1 > div {
+		background-color: #f1f1f1;
+		margin: 10px;
+		text-align: center;
+		font-size: 12px;
+	}
+	li.portfolio {
 	  padding: 5px 0;
 	}
 	</style>
@@ -189,12 +194,9 @@
 			<div class="templates">
 				<div id="listItem">
 					<div class="row1">
-						<div class="title"></div>
-						<div class="amount"></div>
-					</div>
-					<div class="row2">
-						<div class="description">
-						</div>
+						<div class="ticker"></div>
+						<div class="price"></div>
+						<div class="pop"></div>
 					</div>
 				</div>
 			</div>
@@ -215,7 +217,7 @@
 		dataObject.forEach(buildNewList);
 
 		function buildNewList(item, index) {
-		  var listItem = $('<li>' + listItemString + '</li>');
+		  var listItem = $('<li class="portfolio">' + listItemString + '</li>');
 		  var listItemTitle = $('.title', listItem);
 		  listItemTitle.html(item.ticker);
 		  var listItemAmount = $('.amount', listItem);
