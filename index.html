@@ -191,13 +191,11 @@
 	<div id="portfolio-container">
 		<div>
 			<div class="header-row">
-				
-					<div>Ticker</div>
-					<div>Price</div>
-					<div>%</div>
-				
+				<div>Ticker</div>
+				<div>Price</div>
+				<div>%</div>
 			</div>
-			<ul id="dataList"></ul>
+			<ul id="wsbtop1dataList"></ul>
 			<div class="templates">
 				<div id="listItem">
 					<div class="row1">
@@ -208,31 +206,115 @@
 				</div>
 			</div>
 		</div>
-		<div>port 2</div>
-		<div>port 3</div>
-		<div>port 4</div>
-		<div>port 5</div>
-		<div>port 6</div>
+		<div>
+			<div class="header-row">
+				<div>Ticker</div>
+				<div>Price</div>
+				<div>%</div>
+			</div>
+			<ul id="wsbtop10dataList"></ul>
+			<div class="templates">
+				<div id="listItem">
+					<div class="row1">
+						<div class="ticker"></div>
+						<div class="price"></div>
+						<div class="pop"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="header-row">
+				<div>Ticker</div>
+				<div>Price</div>
+				<div>%</div>
+			</div>
+			<ul id="wsbtop50dataList"></ul>
+			<div class="templates">
+				<div id="listItem">
+					<div class="row1">
+						<div class="ticker"></div>
+						<div class="price"></div>
+						<div class="pop"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="header-row">
+				<div>Ticker</div>
+				<div>Price</div>
+				<div>%</div>
+			</div>
+			<ul id="wsbtop100dataList"></ul>
+			<div class="templates">
+				<div id="listItem">
+					<div class="row1">
+						<div class="ticker"></div>
+						<div class="price"></div>
+						<div class="pop"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="header-row">
+				<div>Ticker</div>
+				<div>Price</div>
+				<div>%</div>
+			</div>
+			<ul id="wsb1000scoreataList"></ul>
+			<div class="templates">
+				<div id="listItem">
+					<div class="row1">
+						<div class="ticker"></div>
+						<div class="price"></div>
+						<div class="pop"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="header-row">
+				<div>Ticker</div>
+				<div>Price</div>
+				<div>%</div>
+			</div>
+			<ul id="wsb100scoreataList"></ul>
+			<div class="templates">
+				<div id="listItem">
+					<div class="row1">
+						<div class="ticker"></div>
+						<div class="price"></div>
+						<div class="pop"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 	<script>
-		
-		var dataObject = JSON.parse($.getJSON({
-				'url': 'wsbtop10.json',
-				'async': false
-			}).responseText);
-		var listItemString = $('#listItem').html();
+		var portfolios = ["wsbtop1", "wsbtop10", "wsbtop50", "wsbtop100", "wsb1000score", "wsb100score"]
+		var iter_port;
+		for (iter_port = 0; iter_port < portfolios.length; iter_port++) {
+			var dataObject = JSON.parse($.getJSON({
+					'url': portfolios[iter_port],
+					'async': false
+				}).responseText);
+			var listItemString = $('#listItem').html();
 
-		dataObject.forEach(buildNewList);
+			dataObject.forEach(buildNewList);
 
-		function buildNewList(item, index) {
-		  var listItem = $('<li class=portfolio>' + listItemString + '</li>');
-		  var listItemTitle = $('.ticker', listItem);
-		  listItemTitle.html(item.ticker);
-		  var listItemDesc = $('.price', listItem);
-		  listItemDesc.html('$' + item.price);
-		  var listItemAmount = $('.pop', listItem);
-		  listItemAmount.html(Math.round(item.pop*100)/100 + '%');
-		  $('#dataList').append(listItem);
+			function buildNewList(item, index) {
+			  var listItem = $('<li class=portfolio>' + listItemString + '</li>');
+			  var listItemTitle = $('.ticker', listItem);
+			  listItemTitle.html(item.ticker);
+			  var listItemDesc = $('.price', listItem);
+			  listItemDesc.html('$' + item.price);
+			  var listItemAmount = $('.pop', listItem);
+			  listItemAmount.html(Math.round(item.pop*100)/100 + '%');
+			  $('#' + portfolios[iter_port] + 'dataList').append(listItem);
+			}
 		}
 	</script>
 	<div style="width:90%; margin:auto;">
