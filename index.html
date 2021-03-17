@@ -219,12 +219,12 @@
 
 		function buildNewList(item, index) {
 		  var listItem = $('<li class=portfolio>' + listItemString + '</li>');
-		  var listItemTitle = $('.title', listItem);
+		  var listItemTitle = $('.ticker', listItem);
 		  listItemTitle.html(item.ticker);
-		  var listItemAmount = $('.amount', listItem);
-		  listItemAmount.html(item.pop);
-		  var listItemDesc = $('.description', listItem);
+		  var listItemDesc = $('.price', listItem);
 		  listItemDesc.html(item.price);
+		  var listItemAmount = $('.pop', listItem);
+		  listItemAmount.html(item.pop);
 		  $('#dataList').append(listItem);
 		}
 	</script>
