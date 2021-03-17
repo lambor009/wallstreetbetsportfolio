@@ -73,6 +73,7 @@
 		margin: 10px;
 		text-align: center;
 		font-size: 12px;
+		align-itmes: center;
 	}
 	li.portfolio {
 	  padding: 5px 0;
@@ -217,7 +218,7 @@
 		dataObject.forEach(buildNewList);
 
 		function buildNewList(item, index) {
-		  var listItem = $('<li class="portfolio">' + listItemString + '</li>');
+		  var listItem = $('<li class=portfolio>' + listItemString + '</li>');
 		  var listItemTitle = $('.title', listItem);
 		  listItemTitle.html(item.ticker);
 		  var listItemAmount = $('.amount', listItem);
