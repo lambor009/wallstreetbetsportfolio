@@ -51,20 +51,26 @@
 	  overflow: auto;
 	}
 
-	.row1,
+	.row1 
 	.header-row {
 	  clear: both;
 		display: flex;
 		justify-content:center;
 	}
 
-	.row1 > div,
-	.header-row > div{
+	.row1 > div {
 		background-color: #f1f1f1;
 		text-align: center;
 		font-size: 12px;
 		width: 40px;
 		padding: 0px 5px 0px 5px;
+	}
+	.header-row > div {
+		background-color: #f1f1f1;
+		text-align: center;
+		font-size: 14px;
+		width: 40px;
+		padding: 5px 5px 0px 5px;
 	}
 	li.portfolio {
 	  padding: 0px 0;
@@ -220,9 +226,9 @@
 		  var listItemTitle = $('.ticker', listItem);
 		  listItemTitle.html(item.ticker);
 		  var listItemDesc = $('.price', listItem);
-		  listItemDesc.html(item.price);
+		  listItemDesc.html('$' + item.price);
 		  var listItemAmount = $('.pop', listItem);
-		  listItemAmount.html(Math.round(item.pop*100)/100);
+		  listItemAmount.html(Math.round(item.pop*100)/100 + '%');
 		  $('#dataList').append(listItem);
 		}
 	</script>
