@@ -52,7 +52,8 @@
 	}
 
 	.row1,
-	.header-row {
+	.header-row,
+	.portfolioInfo-row {
 	  clear: both;
 		display: flex;
 		justify-content:center;
@@ -74,12 +75,17 @@
 		text-decoration: underline;
 		font-weight: bold;
 	}
+	.portfolioInfo-row > div {
+		background-color: #f1f1f1;
+		text-align: center;
+		font-size: 14px;
+		width: 40px;
+		padding: 5px 5px 0px 5px;
+		text-decoration: underline;
+		font-weight: bold;
+	}
 	li.portfolio {
 	  padding: 0px 0;
-	}
-	#portfolioInfo {
-		display: flex;
-		justify-content: center;
 	}
 	</style>
 </head>
@@ -197,7 +203,7 @@
 			<ul id="wsbtop1portfolioInfo"></ul>
 			<div class="templates">
 				<div id="portfolioInfo">
-					<div class="row1">
+					<div class="portfolioInfo-row">
 						<div class="portfolio-name"></div>
 						<div class="portfolio-value"></div>
 						<div class="percent-gain"></div>
