@@ -24,7 +24,6 @@
 		background-color: #f1f1f1;
 		margin: 10px;
 		text-align: center;
-		line-height: 75px;
 		font-size: 12px;
 	}
 	
@@ -71,8 +70,6 @@
 	}
 	.header_row {
 		display: flex;
-		justify-content:center;
-		
 	}
 	.row1 > div {
 		background-color: #f1f1f1;
@@ -202,7 +199,6 @@
 				<div>%</div>
 			</div>
 			<ul id="dataList"></ul>
-				
 			<div class="templates">
 				<div id="listItem">
 					<div class="row1">
@@ -235,7 +231,7 @@
 		  var listItemDesc = $('.price', listItem);
 		  listItemDesc.html(item.price);
 		  var listItemAmount = $('.pop', listItem);
-		  listItemAmount.html(item.pop);
+		  listItemAmount.html(Math.round(item.pop*100)/100);
 		  $('#dataList').append(listItem);
 		}
 	</script>
