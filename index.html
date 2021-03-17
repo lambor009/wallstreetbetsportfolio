@@ -17,7 +17,7 @@
 	
 	#portfolio-container {
 		display: flex;
-		padding: 0px 10px 0px 10px;
+		padding: 5px 10px 0px 10px;
 		justify-content: center;
 	}
 	
@@ -85,9 +85,14 @@
 		background-color: #f1f1f1;
 		text-align: center;
 		font-size: 14px;
-		padding: 5px 5px 0px 5px;
-		text-decoration: underline;
+		padding: 0px 5px 0px 5px;
+	}
+	.portfolio-name {
+		font-size: 16px;
 		font-weight: bold;
+	}
+	.portfolio-value {
+		color: green;
 	}
 	li.portfolio {
 	  padding: 0px 0;
@@ -234,6 +239,17 @@
 			</div>
 		</div>
 		<div>
+			<ul id="wsbtop10portfolioInfo"></ul>
+			<div class="templates">
+				<div id="portfolioInfo">
+					<div class="portfolioInfo-row">
+						<div class="portfolio-name"></div>
+						<div class="portfolio-value"></div>
+						<div class="percent-gain"></div>
+						<div class="last-update"></div>
+					</div>
+				</div>
+			</div>
 			<div class="header-row">
 				<div>Ticker</div>
 				<div>Price</div>
@@ -358,7 +374,9 @@
 			  var listItemDesc = $('.portfolio-value', listItem);
 			  listItemDesc.html('$' + item.values[item.values.length-1]);
 			  var listItemAmount = $('.percent-gain', listItem);
-			  listItemAmount.html(Math.round(item.values[item.values.length-1]/1000*100)/100 + '%');
+			  listItemAmount.html((Math.round(item.values[item.values.length-1]/1000*100*100)/100)-100 + '%');
+			  var listItemDatetime = $('.last-update', listItem);
+			  listItemDatetime.html(item.datetime[item.values.length-1]);
 			  $('#' + portfolios[iter_port] + 'portfolioInfo').append(listItem);
 			}			
 		}
