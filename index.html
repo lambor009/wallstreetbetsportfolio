@@ -334,9 +334,9 @@
 				}).responseText);
 			var listItemString = $('#portfolioInfo').html();
 
-			portfolioData.forEach(buildNewList);
+			buildPortfolioInfo(portfolioData);
 
-			function buildNewList(item, index) {
+			function buildPortfolioInfo(item) {
 			  var listItem = $('<li class=portfolio>' + listItemString + '</li>');
 			  var listItemTitle = $('.portfolio-name', listItem);
 			  listItemTitle.html(portfolios[iter_port]);
