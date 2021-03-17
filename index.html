@@ -372,11 +372,11 @@
 			  var listItemTitle = $('.portfolio-name', listItem);
 			  listItemTitle.html(portfolios[iter_port]);
 			  var listItemDesc = $('.portfolio-value', listItem);
-			  listItemDesc.html('$' + item.values[item.values.length-1]);
+			  listItemDesc.html('Value: $' + item.values[item.values.length-1]);
 			  var listItemAmount = $('.percent-gain', listItem);
-			  listItemAmount.html((Math.round(item.values[item.values.length-1]/1000*100*100)/100)-100 + '%');
+			  listItemAmount.html('% Chg.' + (Math.round(item.values[item.values.length-1]/1000*100))-100 + '%');
 			  var listItemDatetime = $('.last-update', listItem);
-			  listItemDatetime.html(item.datetime[item.values.length-1]);
+			  listItemDatetime.html('Last Update:' + item.datetime[item.values.length-1]);
 			  $('#' + portfolios[iter_port] + 'portfolioInfo').append(listItem);
 			}			
 		}
