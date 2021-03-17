@@ -14,10 +14,12 @@
 		-webkit-user-select: none;
 		-ms-user-select: none;
 	}
+	
 	#portfolio-container {
 		display: flex;
 		justify-content: center;
 	}
+	
 	#portfolio-container > div {
 		background-color: #f1f1f1;
 		width: 100px;
@@ -25,6 +27,50 @@
 		text-align: center;
 		line-height: 75px;
 		font-size: 30px;
+	}
+	
+	ul {
+	  list-style-type: none;
+	  line-height: 24px;
+	  margin: 0;
+	  padding: 0;
+	}
+
+	sup {
+	  vertical-align: baseline;
+	  position: relative;
+	  top: -0.4em;
+	  color: red;
+	}
+
+	div.templates {
+	  display: none;
+	}
+
+	div.title {
+	  float: left;
+	  overflow: auto;
+	}
+
+	div.amount {
+	  float: right;
+	  overflow: auto;
+	  color: #37b;
+	}
+
+	div.description {
+	  overflow: auto;
+	  font-size: .75em;
+	  color: #666;
+	  line-height: normal;
+	}
+
+	.row1,
+	.row2 {
+	  clear: both;
+	}
+	li {
+	  padding: 5px 0;
 	}
 	</style>
 </head>
@@ -138,14 +184,47 @@
 	<hr/>
 	
 	<div id="portfolio-container">
-		<div>port 1</div>
+		<div>
+			<ul id="dataList"></ul>
+			<div class="templates">
+				<div id="listItem">
+					<div class="row1">
+						<div class="title"></div>
+						<div class="amount"></div>
+					</div>
+					<div class="row2">
+						<div class="description">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div>port 2</div>
 		<div>port 3</div>
 		<div>port 4</div>
 		<div>port 5</div>
 		<div>port 6</div>
 	</div>
-	
+	<script>
+		var dataObject = JSON.parse($.getJSON({
+				'url': 'wsbtop1.json',
+				'async': false
+			}).responseText);
+		var listItemString = $('#listItem').html();
+
+		dataObject.forEach(buildNewList);
+
+		function buildNewList(item, index) {
+		  var listItem = $('<li>' + listItemString + '</li>');
+		  var listItemTitle = $('.title', listItem);
+		  listItemTitle.html(item.ticker);
+		  var listItemAmount = $('.amount', listItem);
+		  listItemAmount.html(item.pop);
+		  var listItemDesc = $('.description', listItem);
+		  listItemDesc.html(item.price);
+		  $('#dataList').append(listItem);
+		}
+	</script>
 	<div style="width:90%; margin:auto;">
 		<h3>FAQ</h3>
 		<ul>
