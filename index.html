@@ -190,6 +190,10 @@
 	
 	<div id="portfolio-container">
 		<div>
+			<div class="portfolio-name"></div>
+			<div class="portfolio-value"></div>
+			<div class="percent-gain"></div>
+			<div class="last-update"></div>
 			<div class="header-row">
 				<div>Ticker</div>
 				<div>Price</div>
@@ -315,6 +319,15 @@
 			  listItemAmount.html(Math.round(item.pop*100)/100 + '%');
 			  $('#' + portfolios[iter_port] + 'dataList').append(listItem);
 			}
+			
+			var portfolioData = JSON.parse($.getJSON({
+					'url': portfolios[iter_port] + '_history.json',
+					'async': false
+				}).responseText);
+			var lastValue = portfolioData.values[portfolioData.values.length-1];
+			var lastUpdate = portfolioData.datetime[portfolioData.datetime.length-1];
+			$('.portfolio-name').html(portfolio[iter_port]);
+			
 		}
 	</script>
 	<div style="width:90%; margin:auto;">
