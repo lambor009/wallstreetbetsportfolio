@@ -190,10 +190,18 @@
 	
 	<div id="portfolio-container">
 		<div>
-			<div class="portfolio-name"></div>
-			<div class="portfolio-value"></div>
-			<div class="percent-gain"></div>
-			<div class="last-update"></div>
+			<ul id="wsbtop1portfolioInfo"></ul>
+			<div class="templates">
+				<div id="portfolioInfo">
+					<div class="row1">
+						<div class="portfolio-name"></div>
+						<div class="portfolio-value"></div>
+						<div class="percent-gain"></div>
+						<div class="last-update"></div>
+					</div>
+				</div>
+			</div>
+			
 			<div class="header-row">
 				<div>Ticker</div>
 				<div>Price</div>
@@ -298,7 +306,7 @@
 
 	</div>
 	<script>
-		var portfolios = ["wsbtop1", "wsbtop10", "wsbtop50", "wsbtop100", "wsb1000score", "wsb100score"]
+		var portfolios = ["wsbtop1"]
 		var iter_port;
 		for (iter_port = 0; iter_port < portfolios.length; iter_port++) {
 			var dataObject = JSON.parse($.getJSON({
@@ -324,10 +332,20 @@
 					'url': portfolios[iter_port] + '_history.json',
 					'async': false
 				}).responseText);
-			var lastValue = portfolioData.values[portfolioData.values.length-1];
-			var lastUpdate = portfolioData.datetime[portfolioData.datetime.length-1];
-			$('.portfolio-name').html(portfolio[iter_port]);
-			
+			var listItemString = $('#portfolioInfo').html();
+
+			portfolioData.forEach(buildNewList);
+
+			function buildNewList(item, index) {
+			  var listItem = $('<li class=portfolio>' + listItemString + '</li>');
+			  var listItemTitle = $('.portfolio-name', listItem);
+			  listItemTitle.html(portfolios[iter_port]);
+			  var listItemDesc = $('.portfolio-value', listItem);
+			  listItemDesc.html('$' + item.values[item.values.length-1]);
+			  var listItemAmount = $('.percent-gain', listItem);
+			  listItemAmount.html(Math.round(item.values[item.values.length-1]/1000*100)/100 + '%');
+			  $('#' + portfolios[iter_port] + 'portfolioInfo').append(listItem);
+			}			
 		}
 	</script>
 	<div style="width:90%; margin:auto;">
