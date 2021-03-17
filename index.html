@@ -189,11 +189,11 @@
 	<div id="portfolio-container">
 		<div>
 			<div class="header-row">
-				<b><u>
+				
 					<div>Ticker</div>
 					<div>Price</div>
 					<div>%</div>
-				</u></b>
+				
 			</div>
 			<ul id="dataList"></ul>
 			<div class="templates">
@@ -213,6 +213,7 @@
 		<div>port 6</div>
 	</div>
 	<script>
+		
 		var dataObject = JSON.parse($.getJSON({
 				'url': 'wsbtop10.json',
 				'async': false
