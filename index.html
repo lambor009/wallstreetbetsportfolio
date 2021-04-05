@@ -177,10 +177,11 @@
 			//var colorNames = Object.keys(window.chartColors);
 			//var colorName = colorNames[config.data.datasets.length % colorNames.length];
 			//var newColor = window.chartColors[colorName];
+			var allColors = ['green', 'blue', 'red', 'purple', 'pink', 'orange', 'yellow', 'gray'];
 			var newDataset = {
 				label: portfolios[iter_port],
-				backgroundColor: 'green',
-				borderColor: 'green',
+				backgroundColor: allColors[iter_port],
+				borderColor: allColors[iter_port],
 				data: json.values,
 				fill: false
 			};
