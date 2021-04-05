@@ -174,13 +174,13 @@
 			console.log("portfolioname = " + portfolios[iter_port]);
 			console.log(json);
 			
-			var colorNames = Object.keys(window.chartColors);
-			var colorName = colorNames[config.data.datasets.length % colorNames.length];
-			var newColor = window.chartColors[colorName];
+			//var colorNames = Object.keys(window.chartColors);
+			//var colorName = colorNames[config.data.datasets.length % colorNames.length];
+			//var newColor = window.chartColors[colorName];
 			var newDataset = {
 				label: portfolios[iter_port],
-				backgroundColor: newColor,
-				borderColor: newColor,
+				backgroundColor: 'green',
+				borderColor: 'green',
 				data: json.values,
 				fill: false
 			};
