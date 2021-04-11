@@ -140,6 +140,10 @@
 				animation: {
 					onComplete: function() {
 						console.log(window.myLine.toBase64Image());
+						var a = document.createElement('a');
+						a.href = myChart.toBase64Image();
+						a.download = 'my_file_name.png';
+						a.click();
 					}
 				},
 				responsive: true,
