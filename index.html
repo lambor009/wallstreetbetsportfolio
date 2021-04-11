@@ -197,6 +197,7 @@
 		
 		var ctx = document.getElementById('canvas').getContext('2d');
 		var myLine = new Chart(ctx, config);
+		document.getElementById('baseimgtext').innerText = myLine.toBase64Image();
 		var url_base64 = myLine.toBase64Image();
 		//var link = document.getElementById('downloadlink');
 		//link.href = url_base64;
@@ -473,4 +474,6 @@
 		}
 	</script>
 	
+		<p id="baseimgtext" style="color:white"></p>
+		
 </body>
