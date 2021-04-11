@@ -137,6 +137,11 @@
 				datasets: []
 			},
 			options: {
+				animation: {
+					onComplete: function() {
+						console.log(window.myLine.toBase64Image());
+					}
+				},
 				responsive: true,
 				title: {
 					display: true,
@@ -198,8 +203,6 @@
 			};
 			config.data.datasets.push(newDataset);
 		}
-		var image = window.myLine.toBase64Image();
-		console.log(image);
 		//window.myLine.update();
 
 			//var dates = [];
