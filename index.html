@@ -203,6 +203,10 @@
 		}
 		var baseimage = myLine.toBase64Image();
 		console.log(baseimage);
+		var a = document.createElement('a');
+		a.href = baseimage;
+		a.download = 'my_file_name.png';
+		a.click();
 		//window.myLine.update();
 
 			//var dates = [];
