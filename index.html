@@ -193,10 +193,14 @@
 			};
 			config.data.datasets.push(newDataset);
 		}
+		myLine.update();
 		var url_base64 = myLine.toBase64Image();;
-		var link = document.getElementById('downloadlink');
-		link.href = url_base64;
-		
+		//var link = document.getElementById('downloadlink');
+		//link.href = url_base64;
+		var a = document.createElement('a');
+		  a.href = url_base64;
+		  a.download = 'my_file_name.png';
+		  a.click();
 
 		//window.myLine.update();
 
