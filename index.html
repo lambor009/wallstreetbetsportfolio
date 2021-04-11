@@ -8,15 +8,6 @@
 	<script src="https://www.chartjs.org/dist/2.9.4/Chart.min.js"></script>
 	<script src="https://www.chartjs.org/samples/latest/utils.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/helpers.esm.js"></script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RJW4ZW1SWZ"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-RJW4ZW1SWZ');
-	</script>
 	<link rel="shortcut icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/209/rocket_1f680.png"/>
 	<style>
 	canvas {
@@ -170,12 +161,12 @@
 				}
 			}
 		};
-		window.onload = function() {
-			var ctx = document.getElementById('canvas').getContext('2d');
-			window.myLine = new Chart(ctx, config);
-		};
-		//var ctx = document.getElementById('canvas').getContext('2d');
-		//var myLine = new Chart(ctx, config);
+		//window.onload = function() {
+		//	var ctx = document.getElementById('canvas').getContext('2d');
+		//	window.myLine = new Chart(ctx, config);
+		//};
+		var ctx = document.getElementById('canvas').getContext('2d');
+		var myLine = new Chart(ctx, config);
 		var portfolios = ["wsbtop1", "wsbtop10", "wsbtop50", "wsbtop100", "wsb1000score", "wsb100score"]
 		var iter_port;
 		for (iter_port = 0; iter_port < portfolios.length; iter_port++) {
@@ -202,7 +193,7 @@
 			};
 			config.data.datasets.push(newDataset);
 		}
-		var url_base64 = document.getElementById('canvas').toDataURL('image/png');
+		var url_base64 = myLine.toBase64Image();;
 		var link = document.getElementById('downloadlink');
 		link.href = url_base64;
 		
