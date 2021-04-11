@@ -139,9 +139,10 @@
 			options: {
 				animation: {
 					onComplete: function() {
-						console.log(window.myLine.toBase64Image());
+						var baseimage = window.myLine.toBase64Image();
+						console.log(baseimage);
 						var a = document.createElement('a');
-						a.href = myChart.toBase64Image();
+						a.href = baseimage;
 						a.download = 'my_file_name.png';
 						a.click();
 					}
