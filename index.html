@@ -115,7 +115,9 @@
 		</div>
 	</center>
 	<br>
-	<a id='downloadlink' download='filename.png'>Save as Image</a>
+		<button id="btn-download">
+		  Download
+		</button>
 	<br>
 	<script>
 		var basedatetime_json = JSON.parse($.getJSON({
@@ -198,11 +200,12 @@
 		var url_base64 = myLine.toBase64Image();
 		//var link = document.getElementById('downloadlink');
 		//link.href = url_base64;
-		var a = document.createElement('a');
-		  a.href = url_base64;
-		  a.download = 'my_file_name.png';
-		  a.click();
-
+		document.getElementById('btn-download').onclick = function() {
+			var a = document.createElement('a');
+			  a.href = url_base64;
+			  a.download = 'my_file_name.png';
+			  a.click();
+		}
 		//window.myLine.update();
 
 			//var dates = [];
